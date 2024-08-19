@@ -20,6 +20,28 @@ The user also has the option to search 'What are you searching for?'.  This will
 
 The app generates a gamut of options including: release date, rating out of a ten scale, runtime, genres, certification (rating), and has the top 15 casts of the flix.  It also shows whether the movie is released or not, to allow the user to make a deciding action, whether or not, to buy a ticket to see the movie, or just enjoy at home.  The budget is shown -- so is the revenue.  The user can also choose from trailers to watch from, to peak their suggested interests in the film.
 
+## Screenshots:
+
+![Trending Movies](1.png)
+
+![Movies Now Playing](2.png)
+
+![Upcoming Movies](3.png)
+
+![Top Rated Movies](4.png)
+
+![The Search Options included with Genre Selection of the movies according to user preferences and interaction](5.png)
+
+![Delicate Footer of the page with 'The Movie Databook' logo(6.png)
+
+![Responsive View on mobile (Android / iPhone)](7.png)
+
+![Responsive View - Genre Selection](8.png)
+
+![Example: Deadpool and Wolverine - Movie Description](9.png)
+
+![Trailer Selection Feature](9.png)
+
 ## Summary of Technologies Used:
 
 Front-end Technologies:
