@@ -1,6 +1,6 @@
 # moviedb - The Movie Databook, App Created by Nathan Chan (Landing Page)
 
-Link: https://natekhchan.github.io/moviedb/index.html
+Live Link: https://natekhchan.github.io/moviedb/index.html
 
 ## Introduction:
 This app draws inspiration from the authors, Trevin Shu and Arpad G. Bondor [Gabriel] .  This clockwork and artistry of work took about 3 weeks to fully debug and feature the final product.  Its quality is crafted solely with the tact and skills of Nathan Chan, drawing awareness to the UX / UI features of the page.  There are many features of this app.  
