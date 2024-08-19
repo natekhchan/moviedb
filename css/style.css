@@ -1,0 +1,1054 @@
+/* CSS Clockwork by Nathan Chan */
+
+/* @font-face Rule */
+@font-face {
+  font-family: 'Manrope';
+  src: url('../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, main {
+  font-family: 'Manrope';
+}
+
+.the-movie-db-img {
+  width: 40%;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+/* Navbar Link Styles */
+.navbar-links {
+  list-style-type: none; /* Remove discs/bullets from list items */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly with space between */
+  align-items:center; /* Center navbar links vertically */
+}
+
+.navbar-links a {
+  color: black !important;
+  text-decoration: none !important; /* Removes the underline */
+  background-color: transparent;
+  text-transform: uppercase; /* Capitalizes the text */
+}
+
+.navbar-links {
+  font-family: "Manrope", sans-serif;
+  color: black;  
+}
+
+a:hover {
+  color: orange !important;
+  text-decoration: none !important; /* Removes the underline */
+  background-color: transparent;  
+}
+
+
+.navbar-item {
+ margin-right :20px;
+}
+
+/* Form Styles */
+#form {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */  
+}
+
+form {
+  width: 30%;
+}
+
+input[type="text"] {
+  border: none;
+  outline: none; /* Remove outline when focused */
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search {
+  border: none; /* Removes the border */
+  background-color: #343a40; /* Darker background */
+  color: white; /* Text color */
+  padding: 0.375rem 0.75rem; /* Padding for a better look */
+  border-radius: 0.25rem; /* Optional: Add some border-radius */
+}
+
+.search::placeholder {
+  color: #adb5bd; /* Lighter placeholder text */
+  opacity: 1; /* Ensures the placeholder is fully visible */
+}
+
+/* Form Styles */
+.form-control {
+  width: 400px !important; /* Set the width to 400px and make it important to override other styles */
+} 
+
+/* Form Control Length */
+.input-group {
+  display: flex;
+  align-items: center; /* Center vertically */  
+}
+
+.input-group-append {
+  margin-left: 10px; /* Add some space between input and button */
+}
+
+.btn-custom {
+  background-color: #343a40; /* Dark background */
+  border: none; /* Remove border */
+}
+
+/* Custom styles for the input group */
+.input-group-custom {
+  border: 2px solid #343a40; /* Dark border */
+  border-radius: 4px; /* Rounded corners */
+  overflow: hidden; /* Ensures the border wraps around the input and button */
+}
+
+.input-group-custom .form-control {
+  border: none; /* Remove default border from input */
+  box-shadow: none; /* Remove any shadow */
+}
+
+.input-group-custom .btn-custom {
+  border: none; /* Remove default border from button */
+  box-shadow: none; /* Remove any shadow */
+  background-color: white; /* Dark background for the button */
+  color: white; /* White color for the icon */
+}
+
+.input-group-custom .btn-custom:hover {
+  background-color: #495057; /* Slightly lighter dark background on hover */
+  color: white; /* Ensure the icon turns white on hover */
+  border: 2px solid white; /* White border on hover */
+  outline: none; /* Remove default outline */
+}
+
+/* Adjust the color of the search icon on hover */
+.input-group-custom .btn-custom:hover .fa-search {
+  color: white !important; /* Change the search icon to white on hover */
+}
+
+.text-dark {
+  color: white !important;
+}
+
+/* Movie Info */
+
+.movie-info {
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  letter-spacing: 0.5px;
+  background-color: rgba(120, 132, 165, 0.411);
+}
+
+h3, span, p {
+  font-family: "Manrope", sans-serif;
+}
+
+h3 {
+  font-size: 16px !important;
+}
+
+span#percentage {
+  padding-top: -20px !important;
+}
+
+.movie-info span {
+  color: black;
+  background-color: white;
+  border-radius: 12px; /* Make the border radius 50% to create a circle */
+  padding: 5px; /* Add some padding to ensure text is centered within the circle */
+  display: inline-block; /* Ensure the span behaves like a block element for better positioning */
+  font-weight: bolder;
+}
+
+h1 {
+  font-family: "Manrope", sans-serif;
+  text-transform: uppercase;
+}
+
+/* rating colors */
+
+.green {
+  color: green !important;
+}
+
+.orange {
+  color: orange !important;
+}
+
+.red {
+  color: red !important;
+}
+
+
+/* Description */
+.description {
+  font-size: medium;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  color: black;
+  padding: 1rem;
+  max-height: 100%;
+  transform: translateY(100%); /* Initially hidden */
+  transition: transform 0.3s ease-in;
+  overflow: hidden; /* Hide content that overflows */
+}
+
+/* Expand Button */
+.expand {
+  background-color: orange;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin-top: 5px;
+}
+
+/* Movie grid item position */
+.col-md-3.p-1 {
+  position: relative; /* Ensure the description stays within the bounds of the grid item */
+  overflow: hidden;   /* Prevent overflow from expanding the grid item size */
+  border-bottom: 0 !important;   /* Remove any bottom border if it's causing the white line */
+  margin-bottom: 0 !important;   /* Ensure no margin at the bottom */
+}
+
+/* Hover Effect */
+.col-md-3.p-1:hover .description {
+  transform: translateY(0); /* Slide up the description on hover */
+}
+
+.overview {
+  font-weight: bolder;
+}
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */  
+}
+
+#overlay.active {
+  display: block !important; /* Show the overlay when active */
+  width: 100% !important; /* Expand to full width when active */
+}
+
+
+ /* Position the content inside the overlay */
+ .overlay-content {
+  position: relative;
+  top: 10%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: left; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  margin-left: 50px;
+}
+
+.overlay.active {
+  display: block; /* Show the overlay when active */
+  opacity: 1;
+}
+
+.closebtn-overlay-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: orange !important;
+}
+
+.closebtn-overlay-menu:hover {
+  color: white !important;
+}
+
+.trailer-title {
+  text-align: center; /* Centered text/links */
+  margin-top: 100px;
+}
+
+.centered-content {
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn-overlay-menu {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  text-decoration: none;
+}
+
+/* Overlay CSS */
+
+.overlay a {font-size: 20px}
+.overlay .closebtn-overlay-menu {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+}
+
+.embed.hide{
+  display: none;
+}
+
+.embed.show{
+  display: inline-block;
+}
+
+.arrow{
+  position: absolute;
+  font-size: 40px;
+  bottom: 2% !important;
+  transform: translateY(0) !important;
+  z-index: 1000; /* Ensures arrows are above other elements */
+}
+
+.arrow.left-arrow{
+  left:5%;
+  transform: translateY(-50%);
+  bottom: -12% !important; /* Adjusted to move 20px lower */
+}
+
+
+.arrow.right-arrow{
+  transform: translateY(-50%);
+  right:5%;
+  bottom: -12% !important; /* Adjusted to move 20px lower */
+}
+
+.dots{
+margin-top: 30px;
+padding-right: 100px;
+padding-left: 30px;
+}
+
+.dots .dot {
+  padding: 5px 15px;
+  margin-right: 5px; 
+  margin-left: 5px;
+  margin-top: 50px; /* Added margin-top to create space above each square */
+  border-radius: 0; /* Set border-radius to 0 to make them square */
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h1.no-results {
+  color: rgb(255, 168, 6);
+}
+
+.trailer-title {
+  color: rgb(255, 168, 6);
+}
+
+.dots .dot.active{
+color: red;
+font-weight: bold;
+}
+
+.pagination {
+  display: flex;
+  margin: 10px 30px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.page.disabled {
+  cursor: not-allowed;
+  color: grey;
+}
+
+.page {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.page:hover {
+  color: red;
+}
+
+.release-date-title, .rating-title, .runtime-title, .genres-title, .cert-title, .top-actors-title, .status-title, .budget-title, .revenue-title {
+  display: inline-block;
+  margin-right: 5px; /* Optional: Adjust spacing between title and date */
+  color: rgb(255, 168, 6);
+}
+
+.highlight {
+  color: orange;
+}
+
+div.top-actors-title 
+{
+  margin-top: 5px;
+}
+
+.top-actors-title {
+  margin-bottom: 20px;
+}
+
+.top15-actors {
+  margin: 0;
+}
+
+.movieInfo {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Three equal-width columns */
+  gap: 20px; /* Adjust spacing between columns */
+  align-items: center; /* Aligns content at the top of the grid */
+}
+
+.movieInfo-left-col, .movieInfo-right-col {
+  padding: 5px; /* Optional: Add padding inside each column */
+}
+
+.movieInfo-right-col {
+  text-align: left; /* Ensures content in the right column is aligned to the left */
+}
+
+img.footer-img {
+  width: 10%;
+  padding-left: 25px;
+  padding-bottom:25px;
+}
+
+/* sliding menu CSS starts here */
+
+.search-left {
+  font-size: 45px;
+  margin-top: 10px;
+  margin-left: 15px;
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+.sliding-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(17, 17, 17, 0.7);
+  overflow-x: hidden;
+  transition: width 0.5s ease;
+  padding-top: 60px;
+}
+
+.sliding-menu.open {
+  width: 450px; /* Adjust to your preferred width */
+}
+
+.sliding-menu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sliding-menu a:hover {
+  color: #f1f1f1;
+}
+
+.closebtn-sliding-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 36px;
+  cursor: pointer;
+  color: orange;
+}
+
+.closebtn-sliding-menu:hover {
+  color: white;
+}
+
+
+.search-options-title {
+  font-family: "Manrope", sans-serif;
+  color: orange;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: 50px;
+  margin-top: 40px;
+  font-size: xx-large;
+}
+
+.dropdown {
+  position: relative;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+.date-picker-small {
+  width: 150px !important; /* Set the desired width */
+}
+
+div.form-group {
+  margin-left: -5px;
+}
+
+#tags{
+  width:80%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: left;  
+}
+
+.tag{
+  color:white;
+  padding:10px 20px;
+  background-color: orange;
+  border-radius: 50px;
+  margin:5px;
+  display:inline-block;
+  cursor: pointer;
+}
+
+.tag.highlight{
+  background-color: red;
+}
+
+.tags-title  { 
+  font-family: "Manrope", sans-serif;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: 50px;
+  margin-top: 40px;
+  font-size: xx-large;
+}
+
+#tags {
+  margin-left: 50px;
+}
+
+.orange-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.search-button i {
+  margin: 0; /* Center the icon within the button */
+}
+
+.closebtn-sliding-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 36px;
+  cursor: pointer;
+  color: orange !important;
+}
+
+.closebtn-sliding-menu:hover {
+  color: white !important; /* Color when hovered */
+}
+
+.sliding-menu-hamburger {
+  display: none;
+}
+
+
+/* Responsiveness for Smartphones and tablets */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-device-width: 600px) and (max-device-width: 680px){
+  .input-group {
+    position: relative !important;
+    width: 450px !important;
+    left: 155px !important;
+    align-items: flex-start;
+}
+
+.navbar {
+  position: absolute;
+  display: block;
+}
+
+#search {
+  margin-left: 0px !important;
+}
+
+
+.the-movie-db-img {
+    width: 40%;
+    margin-top: -80px !important;
+    margin-left: 130px !important;
+}
+
+.sliding-menu.open {
+  width: 100%; /* Adjust to your preferred width */
+}
+
+.hamburger-icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  margin-left: 450px;
+  margin-top: -65px;
+}
+
+.hamburger-icon span {
+  background: #000;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Sliding Menu */
+.sliding-menu-hamburger {
+  font-family: Manrope;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding-top: 60px;
+}
+
+.sliding-menu-hamburger ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.sliding-menu-hamburger ul li {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.sliding-menu-hamburger ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sliding-menu-hamburger ul li a:hover {
+  text-decoration: underline;
+}
+
+.sliding-menu-hamburger.open {
+  right: 0;
+}
+
+.closebtn-hamburger-menu {
+  position: absolute;
+  color: white;
+  right: 30px;
+  margin-top: -20px;
+  font-size: xx-large;
+}
+
+ul.navbar-links {
+  display: none;
+}
+
+img.footer-img {
+  width: 50%;
+  padding-left: 25px;
+  padding-bottom: 25px;
+}
+
+.sliding-menu-hamburger {
+  display: block;
+}
+
+.orange-bar {
+  position: absolute;
+  bottom: -300px;
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0;
+}
+
+
+
+}
+
+/* From iPhones to Samsung Mobiles */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) { 
+.input-group {
+    position: absolute !important;
+    width: 250px !important;
+    align-items: left !important;
+    height: 45px;
+    left: 20px !important;
+    top: 100px;
+  }
+
+.navbar {
+  position: absolute;
+  display: block;
+}
+
+#search {
+  margin-left: 0px !important;
+  left: 0px;
+}
+
+
+.the-movie-db-img {
+    width: 40%;
+    margin-top: -80px !important;
+    margin-left: 100px !important;
+}
+
+.sliding-menu {
+  margin-top: -50px;
+}
+
+.sliding-menu.open {
+  width: 100%; /* Adjust to your preferred width */
+}
+
+.hamburger-icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  margin-left: 300px;
+  margin-top: -65px;
+}
+
+.hamburger-icon span {
+  background: #000;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Sliding Menu */
+.sliding-menu-hamburger {
+  font-family: Manrope;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding-top: 60px;
+}
+
+.sliding-menu-hamburger ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.sliding-menu-hamburger ul li {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.sliding-menu-hamburger ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sliding-menu-hamburger ul li a:hover {
+  text-decoration: underline;
+}
+
+.sliding-menu-hamburger.open {
+  right: 0;
+}
+
+.closebtn-hamburger-menu {
+  position: absolute;
+  color: white;
+  right: 30px;
+  margin-top: -20px;
+  font-size: xx-large;
+}
+
+ul.navbar-links {
+  display: none;
+}
+
+img.footer-img {
+  width: 50%;
+  padding-left: 25px;
+  padding-bottom: 25px;
+}
+
+.sliding-menu-hamburger {
+  display: block;
+}
+
+.orange-bar {
+  position: absolute;
+  bottom: -200px;
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Styles */
+
+  .input-group {
+      position: absolute !important;
+      width: 250px !important;
+      align-items: left !important;
+      height: 45px;
+      left: 200px !important;
+      top: 100px;
+    }
+  
+  .navbar {
+    position: absolute;
+    display: block;
+  }
+  
+  #search {
+    margin-left: 0px !important;
+    left: 0px;
+  }
+  
+  
+  .the-movie-db-img {
+      width: 40%;
+      margin-top: -80px !important;
+      margin-left: 100px !important;
+  }
+  
+  .sliding-menu.open {
+    width: 100%; /* Adjust to your preferred width */
+  }
+  
+  .hamburger-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    margin-left: 600px;
+    margin-top: -65px;
+  }
+  
+  .hamburger-icon span {
+    background: #000;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Sliding Menu */
+  .sliding-menu-hamburger {
+    font-family: Manrope;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding-top: 60px;
+  }
+  
+  .sliding-menu-hamburger ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .sliding-menu-hamburger ul li {
+    margin: 20px 0;
+    padding-left: 20px;
+  }
+  
+  .sliding-menu-hamburger ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .sliding-menu-hamburger ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .sliding-menu-hamburger.open {
+    right: 0;
+  }
+  
+  .closebtn-hamburger-menu {
+    position: absolute;
+    color: white;
+    right: 30px;
+    margin-top: -20px;
+    font-size: xx-large;
+  }
+  
+  ul.navbar-links {
+    display: none;
+  }
+  
+  img.footer-img {
+    width: 25%;
+    padding-left: 25px;
+    padding-bottom: 25px;
+  }
+
+  .sliding-menu-hamburger {
+    display: block;
+  }
+
+  /* Description */
+.description {
+  font-size: x-small;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  color: black;
+  padding: 1rem;
+  max-height: 100%;
+  transform: translateY(100%); /* Initially hidden */
+  transition: transform 0.3s ease-in;
+  overflow: hidden; /* Hide content that overflows */
+}
+  
+  
+}
+
+/* For The Big Screens */
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1500px) {
+ 
+  .input-group {
+    position: absolute !important;
+    width: 700px !important;
+    align-items: left !important;
+    height: 45px;
+    left: 150px !important;
+    top: 120px;
+  }
+
+ 
+  .the-movie-db-img {
+    width: 40%;
+    margin-top: 35px !important;
+    margin-left: 100px !important;
+}
+
+.hamburger-icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  margin-left: 900px;  
+  margin-top: -50px;
+}
+
+.sliding-menu-hamburger {
+  display: block;
+}
+
+}
+
+
+

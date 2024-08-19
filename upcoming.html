@@ -1,0 +1,208 @@
+<!-- Project 2 by Nathan Chan, The Movie Databook -->
+<!-- Ideas inspired by Trevin Shu and Arpad G. Bondor [Gabriel]--> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta and Stylesheets -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>The Movie Databook - Upcoming Movies</title>
+</head>
+<body>    
+  <header>
+    <nav class="navbar">
+       <div class="search-left"><i class="fa fa-search text-dark"></i></div> <!-- Adjusted icon to bars -->
+      </div>
+         <!-- Sliding bar nav starts here-->
+      
+      <div id="sliding-menu" class="sliding-menu">
+        <div class="search-options-title">Search Options</div>
+        <div class="tags-title" id="tags-title">GENRES:</div>
+        <div id="tags"></div>
+
+        <!-- Orange bar with search icon button -->
+        <div class="orange-bar">
+          <button id="search-button" class="search-button" onclick="openSlidingMenu()">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+        
+        <a href="javascript:void(0)" class="closebtn-sliding-menu" onclick="closeSlidingMenu">&times;</a>
+      </div>
+      <a href="index.html">
+        <img src="assets/img/the-movie-db-logo-horizontal.png" class="the-movie-db-img" />  
+      </a>
+      <div class="hamburger_wrapper">
+        <div id="hamburger" tabindex="1" role="button" class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div id="sliding-menu-hamburger" class="sliding-menu-hamburger">
+        <a href="javascript:void(0)" class="closebtn-hamburger-menu" onclick="closeHamburgerMenu">&times;</a>
+        <ul>
+          <li><a href="index.html">Top Trending</a></li>
+          <li><a href="nowplaying.html">Now Playing</a></li>
+          <li><a href="upcoming.html">Upcoming</a></li>
+          <li><a href="toprated.html">Top Rated</a></li>
+        </ul>
+     </div>
+      <div id="nav-menu" class="nav-menu"></div>
+      <ul class="navbar-links">
+        <li class="navbar-item"><a href="index.html" class="trending-link">Top Trending</a></li>
+        <li class="navbar-item"><a href="nowplaying.html" class="nowplaying-link">Now Playing</a></li>
+        <li class="navbar-item"><a href="upcoming.html" class="upcoming-link">Upcoming</a></li>
+        <li class="navbar-item"><a href="toprated.html" class="toprated-link">Top Rated</a></li>
+      </ul>          
+    </div>
+          <form action="" id="form">
+        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+          <div class="input-group input-group-custom">
+            <input type="search" id="search" class="form-control border-0 bg-light" placeholder="What are you searching for?" aria-describedby="button-addon1">
+            <div class="input-group-append">
+              <button id="button-addon1" type="submit" class="btn btn-custom">
+                <i class="fa fa-search text-dark"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </nav>
+  </header>
+  <main id="main" class="bg-dark text-white">
+    <div class="p-4">
+      <h1 id="movies-heading">Upcoming Movies</h1>
+      <div id="movies" class="row no-gutters"></div>
+    </div>
+    <div class="pagination">
+      <div class="page" id="prev-button">Previous Page</div>
+      <div class="current" id="current">1</div>
+      <div class="page" id="next-button">Next Page</div>
+    </div>  
+    <div id="overlay" class="overlay">
+          <!-- Button to close the overlay navigation -->
+          <a href="javascript:void(0)" class="closebtn-overlay-menu" onclick="closeOverlay()">&times;</a>
+     <!-- Main content -->
+        <div class="overlay-content" id="overlay-content"></div>
+        <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow"><i class="fa-chevron-left fa-solid"></i></a> 
+        <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow"><i class="fa-chevron-right fa-solid"></i></a>
+      </div>
+    </main>
+  </main>
+  <footer class="footer">
+    <div class="footer-bottom"><a href="index.html"><img src="assets/img/themoviedatabooklogo.png" class="footer-img" /></a></div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="js/app.js" type="module"></script>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <link rel="canonical" href="https://amp.dev/documentation/examples/multimedia-animations/animated_hamburger_menu/index.html">
+
+  <script>
+
+function openSlidingMenu() {
+    console.log('Opening sliding menu');
+    const slidingMenu = document.querySelector('.sliding-menu');
+    slidingMenu.classList.add('open');
+}
+
+function closeSlidingMenu() {
+    console.log('Closing sliding menu');
+    const slidingMenu = document.querySelector('.sliding-menu');
+    slidingMenu.classList.remove('open');
+}
+
+// Add event listener to the search-left menu
+document.addEventListener('DOMContentLoaded', function() {
+    const searchleft = document.querySelector('.search-left');
+    searchleft.addEventListener('click', openSlidingMenu);
+
+    // Add event listener to the close button in the sliding menu
+    const closeButton = document.querySelector('.closebtn-sliding-menu');
+    closeButton.addEventListener('click', closeSlidingMenu);
+});
+
+// Function for search button (you can replace this with your actual search logic)
+function searchFunction() {
+    console.log('Search button clicked');
+    // Close the sliding menu when search button is clicked
+    closeSlidingMenu();
+}
+
+   // Add event listener to the search button
+   const searchButton = document.querySelector('.search-button');
+    searchButton.addEventListener('click', searchFunction);
+
+// Function to close the overlay
+function closeOverlay() {
+    console.log("closeOverlay function called");
+    const overlay = document.getElementById('overlay');
+    overlay.style.width = '0';        
+    overlay.style.opacity = '0';      
+    setTimeout(() => {
+        overlay.style.display = 'none';  
+    }, 500);  
+}
+
+// Function to open the overlay
+function openOverlay() {
+    console.log("openOverlay function called");
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';  
+    overlay.style.width = '100%';     
+    overlay.style.opacity = '1';      
+}
+
+// Event listener to open the overlay when the expand button is clicked
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('expand')) {
+        console.log("Expand button clicked");
+        openOverlay();
+    }
+});
+
+// Event listener to close the overlay when the close button is clicked
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('closebtn-overlay-menu')) {
+        console.log("Close button clicked");
+        closeOverlay();
+    }
+});
+
+// Toggle the sliding menu when the hamburger icon is clicked
+function toggleMenu() {
+  const slidingMenu = document.getElementById('sliding-menu-hamburger');
+  slidingMenu.classList.toggle('open');
+}
+
+// Close the menu if clicking outside
+document.addEventListener('click', function(event) {
+  const slidingMenu = document.getElementById('sliding-menu-hamburger');
+  const hamburgerIcon = document.getElementById('hamburger');
+
+  if (!slidingMenu.contains(event.target) && !hamburgerIcon.contains(event.target)) {
+    slidingMenu.classList.remove('open');
+  }
+});
+
+function closeHamburgerMenu() {
+    const slidingMenuHamburger = document.getElementById('sliding-menu-hamburger');
+    slidingMenuHamburger.classList.remove('open');
+}
+
+// Add event listener to the close button
+document.querySelector('.closebtn-hamburger-menu').addEventListener('click', closeHamburgerMenu);
+
+</script>
+</body>
+</html>
