@@ -24,23 +24,43 @@ The app generates a gamut of options including: release date, rating out of a te
 
 ![Trending Movies](1.png)
 
+Trending Movies
+
 ![Movies Now Playing](2.png)
+
+Movies Now Playing (Currently Featuring)
 
 ![Upcoming Movies](3.png)
 
+Upcoming Movies
+
 ![Top Rated Movies](4.png)
+
+Top Rated Movies
 
 ![The Search Options included with Genre Selection of the movies according to user preferences and interaction](5.png)
 
-![Delicate Footer of the page with 'The Movie Databook' logo(6.png)
+The Search Options included with Genre Selection of the movies according to user preferences and interaction (UX)
+
+![Delicate Footer of the page with 'The Movie Databook' logo](6.png)
+
+Delicate Footer of the page with 'The Movie Databook' logo
 
 ![Responsive View on mobile (Android / iPhone)](7.png)
 
+Responsive View on mobile (Android / iPhone)
+
 ![Responsive View - Genre Selection](8.png)
+
+Responsive View - Genre Selection
 
 ![Example: Deadpool and Wolverine - Movie Description](9.png)
 
-![Trailer Selection Feature](9.png)
+Deadpool and Wolverine Movie Description
+
+![Trailer Selection Feature](10.png)
+
+User has the option to select trailers.
 
 ## Summary of Technologies Used:
 
